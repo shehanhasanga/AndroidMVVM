@@ -61,6 +61,7 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
         binding.lifecycleOwner = viewLifecycleOwner
         binding.mainViewModel = mainViewModel
 
+
         val menuHost: MenuHost = requireActivity()
         menuHost.addMenuProvider(object : MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
@@ -95,11 +96,12 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
         }
 
         binding.recipesFab.setOnClickListener {
-            if (recipesViewModel.networkStatus) {
-                findNavController().navigate(R.id.action_recipesFragment_to_recipesBottomSheet)
-            } else {
-                recipesViewModel.showNetworkStatus()
-            }
+//            if (recipesViewModel.networkStatus) {
+//                findNavController().navigate(R.id.action_recipesFragment_to_recipesBottomSheet)
+//            } else {
+//                recipesViewModel.showNetworkStatus()
+//            }
+            findNavController().navigate(R.id.action_recipesFragment_to_locationActivity)
         }
 
         return binding.root

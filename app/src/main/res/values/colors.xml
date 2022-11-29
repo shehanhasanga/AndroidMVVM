@@ -49,5 +49,7 @@
     <color name="bottomNavBackground">@color/white</color>
     <color name="bottomNavItemColor">@color/darkGray</color>
     <color name="bottomNavCheckedItemColor">@color/colorPrimary</color>
+    <color name="colorBorderGray">#D8D8D8</color>
+    <color name="backenablecolor">#E42925</color>
 
 </resources>

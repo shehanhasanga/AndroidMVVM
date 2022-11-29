@@ -6,6 +6,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -21,11 +22,22 @@ object NetworkModule {
     @Singleton
     @Provides
     fun provideHttpClient() : OkHttpClient {
-        val interceptor = HttpLoggingInterceptor()
+//        var interceptor = HttpLoggingInterceptor()
+        var logging = HttpLoggingInterceptor()
+//        logging.level = HttpLoggingInterceptor.Level.BODY
+//            interceptor.level = HttpLoggingInterceptor.Level.BODY
         return OkHttpClient.Builder()
-            .addInterceptor(interceptor)
             .readTimeout(15, TimeUnit.SECONDS)
             .connectTimeout(15, TimeUnit.SECONDS)
+            .addInterceptor( Interceptor() {chain ->
+                var request = chain.request();
+                request = request.newBuilder()
+                    .addHeader("Content-type", "application/json") //pass the content type for all requests
+                    .build();
+                chain.proceed(request)
+            })
+            .addInterceptor(logging)
+
             .build()
     }
 
@@ -48,6 +60,7 @@ object NetworkModule {
             .client(okHttpClient)
             .addConverterFactory(gsonConverterFactory)
             .build()
+
     }
 
     @Singleton

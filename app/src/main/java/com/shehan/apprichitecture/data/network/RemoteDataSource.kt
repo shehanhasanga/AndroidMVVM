@@ -2,6 +2,8 @@ package com.shehan.apprichitecture.data.network
 
 import com.shehan.apprichitecture.models.FoodJoke
 import com.shehan.apprichitecture.models.FoodRecipe
+import com.shehan.apprichitecture.models.login.AuthResponse
+import com.shehan.apprichitecture.models.login.LoginUser
 import retrofit2.Response
 import javax.inject.Inject
 
@@ -20,5 +22,7 @@ class RemoteDataSource @Inject constructor(
     suspend fun getFoodJoke(apiKey: String): Response<FoodJoke> {
         return foodRecipesApi.getFoodJoke(apiKey)
     }
+
+
 
 }

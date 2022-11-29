@@ -5,12 +5,14 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.shehan.apprichitecture.data.database.converters.RecipesTypeConverter
 import com.shehan.apprichitecture.data.database.dao.RecipesDao
+import com.shehan.apprichitecture.data.database.dao.UserDao
 import com.shehan.apprichitecture.data.database.entities.FavoritesEntity
 import com.shehan.apprichitecture.data.database.entities.FoodJokeEntity
 import com.shehan.apprichitecture.data.database.entities.RecipesEntity
+import com.shehan.apprichitecture.data.database.entities.User
 
 @Database(
-    entities = [RecipesEntity::class, FavoritesEntity::class, FoodJokeEntity::class],
+    entities = [RecipesEntity::class, FavoritesEntity::class, FoodJokeEntity::class, User::class],
     version = 1,
     exportSchema = false
 )
@@ -18,5 +20,6 @@ import com.shehan.apprichitecture.data.database.entities.RecipesEntity
 abstract class RecipesDatabase: RoomDatabase() {
 
     abstract fun recipesDao(): RecipesDao
+    abstract fun userDao(): UserDao
 
 }

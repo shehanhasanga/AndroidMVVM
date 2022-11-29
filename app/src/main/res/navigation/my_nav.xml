@@ -20,6 +20,9 @@
         <action
             android:id="@+id/action_recipesFragment_to_detailsActivity"
             app:destination="@id/detailsActivity" />
+        <action
+            android:id="@+id/action_recipesFragment_to_locationActivity"
+            app:destination="@id/locationActivity" />
     </fragment>
     <fragment
         android:id="@+id/favoriteRecipesFragment"
@@ -55,4 +58,14 @@
             android:name="result"
             app:argType="com.shehan.apprichitecture.models.Result" />
     </activity>
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.shehan.apprichitecture.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
+    <activity
+        android:id="@+id/locationActivity"
+        android:name="com.shehan.apprichitecture.LocationActivity"
+        android:label="activity_location"
+        tools:layout="@layout/activity_location" />
 </navigation>

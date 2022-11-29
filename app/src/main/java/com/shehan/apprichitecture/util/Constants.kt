@@ -3,7 +3,10 @@ package com.shehan.apprichitecture.util
 class Constants {
     companion object {
 
-        const val BASE_URL = "https://api.spoonacular.com"
+//        const val BASE_URL = "https://api.spoonacular.com"
+        const val BASE_URL = "http://35.169.13.165:8080"
+
+
         const val BASE_IMAGE_URL = "https://spoonacular.com/cdn/ingredients_100x100/"
         const val API_KEY =  "0d472800e640444493889a6f297df2d8"
 
